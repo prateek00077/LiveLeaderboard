@@ -1,4 +1,5 @@
 import { User } from "../models/user.model.js";
+import { ClaimHistory } from "../models/claimHistory.model.js";
 
 // fetching all the users for the leaderboard in descending order of points
 
