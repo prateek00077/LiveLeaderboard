@@ -1,4 +1,4 @@
-import { User } from "../models/user.model";
+import { User } from "../models/user.model.js";
 
 // fetching all the users for the leaderboard in descending order of points
 
@@ -15,16 +15,15 @@ const getUsers = async ( req, res ) => {
 // Adding a new user
 
 const addUser = async ( req, res ) => {
-    const user = req.body.user;
-
+    const {name} = req.body;
     
     try {
         // first we will check if user with this name already exist or not
-        const isUserExists = await User.findOne({name : user.name});
+        const isUserExists = await User.findOne({name});
         if(isUserExists) return res.status(401).json({message : "User with this name already exists"});
 
         const newUser = new User({
-            name : user.name,
+            name,
         });
         await newUser.save();
         return res.status(201).json({newUser, message : "user added successfully"});
