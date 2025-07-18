@@ -62,3 +62,9 @@ const claimPoints = async ( req, res ) => {
         return res.status(500).json({message : "something went wrong"});
     }
 }
+
+export {
+    getUsers,
+    addUser,
+    claimPoints
+}
