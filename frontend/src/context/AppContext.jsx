@@ -1,6 +1,8 @@
 import axios from 'axios'
 import { createContext, useContext, useState } from 'react';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 // create app context
 const AppContext = createContext();
 
@@ -9,7 +11,7 @@ export const useAppContext = () => useContext(AppContext);
 
 // making an axios instance
 const api = axios.create({
-    baseURL : "http://localhost:3000/api"
+    baseURL : API_URL
 })
 
 export const AppProvider = ({ children}) => {
