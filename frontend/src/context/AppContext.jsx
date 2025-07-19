@@ -21,7 +21,7 @@ export const AppProvider = ({ children}) => {
 
     async function getUser() {
         try {
-            const response = await api.get("/user/get");
+            const response = await api.get("/api/user/get");
             setUsers(response.data.users);
             return response.data;
         } catch (error) {
@@ -34,7 +34,7 @@ export const AppProvider = ({ children}) => {
 
     async function addUser(name) {
         try {
-            const response =  await api.post("/user/add",{name})
+            const response =  await api.post("/api/user/add",{name})
             return response.data;
         } catch (error) {
             console.log(error);
@@ -46,7 +46,7 @@ export const AppProvider = ({ children}) => {
 
     async function claimPoints(userId) {
         try {
-            const response = await api.put("/user/claim",{userId});
+            const response = await api.put("/api/user/claim",{userId});
             return response.data;
         } catch (error) {
             console.log(error);
