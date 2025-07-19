@@ -23,7 +23,6 @@ const Leaderboard = () => {
 
   useEffect(() => {
     getUser();
-    // eslint-disable-next-line
   }, []);
 
   // Filter out any falsy or invalid users before sorting
